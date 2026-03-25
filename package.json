@@ -1,0 +1,15 @@
+{
+  "name": "aiornot",
+  "version": "1.0.0",
+  "description": "AI Text Detector & Humanizer — Detect AI-generated text and make it human-written. Free & open-source.",
+  "scripts": {
+    "dev": "npx vercel dev",
+    "start": "npx serve public"
+  },
+  "keywords": ["ai-detector", "ai-text", "humanizer", "open-source"],
+  "author": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
