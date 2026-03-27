@@ -1,6 +1,6 @@
 # Self-Hosting Guide
 
-Run AiOrNot on your own machine or server.
+Run AiorWot on your own machine or server.
 
 ## Prerequisites
 
@@ -12,7 +12,7 @@ Run AiOrNot on your own machine or server.
 ```bash
 # Clone the repo
 git clone https://github.com/princekadian/AiorWot.git
-cd AiOrNot
+cd AiorWot
 
 # Setup environment
 cp .env.example .env
@@ -34,7 +34,7 @@ If you don't want to use Vercel CLI, you can use a simple Express wrapper:
 ```bash
 # Clone the repo
 git clone https://github.com/princekadian/AiorWot.git
-cd AiOrNot
+cd AiorWot
 
 # Setup environment
 cp .env.example .env
@@ -61,7 +61,7 @@ app.post('/api/detect', detect);
 app.post('/api/humanize', humanize);
 
 const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => console.log(`AiOrNot running on http://localhost:${PORT}`));
+app.listen(PORT, () => console.log(`AiorWot running on http://localhost:${PORT}`));
 ```
 
 Then run:

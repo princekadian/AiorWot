@@ -1,5 +1,5 @@
 /* ============================================
-   AiOrNot — Frontend Logic
+   AiorWot — Frontend Logic
    ============================================ */
 
 // DOM Elements

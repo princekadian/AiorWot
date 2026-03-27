@@ -1,5 +1,5 @@
 /* ============================================
-   AiOrNot — Text Humanizer Endpoint
+   AiorWot — Text Humanizer Endpoint
    POST /api/humanize
    Body: { text: "..." }
    Returns: { humanizedText, provider }
@@ -106,7 +106,7 @@ module.exports = async function handler(req, res) {
             humanizedText = cleanResponse(pass2Result.text);
         } catch (refineErr) {
             // If pass 2 fails (rate limit etc), still return pass 1 result
-            console.log('[AiOrNot] Refinement pass failed, using pass 1 result:', refineErr.message);
+            console.log('[AiorWot] Refinement pass failed, using pass 1 result:', refineErr.message);
         }
         
         return res.status(200).json({
@@ -115,7 +115,7 @@ module.exports = async function handler(req, res) {
         });
         
     } catch (error) {
-        console.error('[AiOrNot] Humanize error:', error.message);
+        console.error('[AiorWot] Humanize error:', error.message);
         return res.status(500).json({ error: error.message });
     }
 };

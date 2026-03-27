@@ -1,4 +1,4 @@
-# Contributing to AiOrNot
+# Contributing to AiorWot
 
 Thanks for your interest in contributing! 🎉
 
@@ -7,7 +7,7 @@ Thanks for your interest in contributing! 🎉
 ### 1. Fork & Clone
 ```bash
 git clone https://github.com/princekadian/AiorWot.git
-cd AiOrNot
+cd AiorWot
 cp .env.example .env
 # Add your API key(s) to .env
 ```

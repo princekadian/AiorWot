@@ -1,8 +1,8 @@
-# 🔍 AiOrNot
+# 🔍 AiorWot
 
 **Detect AI-generated text instantly and humanize it — for free.**
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fprincekadian%2FAiorWot&env=GROQ_API_KEY&envDescription=At%20least%20one%20API%20key%20is%20required.%20See%20docs%2FAPI-PROVIDERS.md%20for%20all%20options.&project-name=aiornot)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fprincekadian%2FAiorWot&env=GROQ_API_KEY&envDescription=At%20least%20one%20API%20key%20is%20required.%20See%20docs%2FAPI-PROVIDERS.md%20for%20all%20options.&project-name=aiorwot)
 
 ---
 
@@ -10,7 +10,7 @@
 
 - 🔍 **AI Detection** — Paste text and get an AI probability score (0-100%)
 - 📊 **Sentence-Level Analysis** — See which sentences look AI-written
-- ✏️ **Text Humanizer** — Rewrite AI text to sound naturally human
+- ✏️ **Text Humanizer** — Rewrite AI text to sound naturally human (2-pass system)
 - 🔄 **Multi-Provider Fallback** — Automatically switches APIs on rate limits
 - 🆓 **100% Free** — Uses free-tier APIs (Gemini, Groq, Cohere, OpenRouter)
 - 🌐 **Deploy Anywhere** — One-click Vercel deploy or self-host locally
@@ -24,14 +24,14 @@
 
 1. Click the **"Deploy with Vercel"** button above
 2. Add at least one API key in the environment variables
-3. Deploy — your site is live at `yourapp.vercel.app`!
+3. Deploy — your site is live!
 
 ### Option 2: Run Locally
 
 ```bash
 # Clone the repo
 git clone https://github.com/princekadian/AiorWot.git
-cd AiOrNot
+cd AiorWot
 
 # Copy env template and add your API keys
 cp .env.example .env
@@ -82,15 +82,17 @@ User sends text → Try Provider 1 (e.g., Groq)
 ## 📁 Project Structure
 
 ```
-AiOrNot/
+AiorWot/
 ├── public/           # Frontend (static files)
 │   ├── index.html    # Main page
 │   ├── style.css     # Styles
-│   └── script.js     # Frontend logic
+│   ├── script.js     # Frontend logic
+│   ├── favicon.png   # Favicon
+│   └── og-image.png  # Open Graph preview image
 ├── api/              # Backend (Vercel Serverless Functions)
 │   ├── providers.js  # Multi-provider handler with fallback
 │   ├── detect.js     # AI detection endpoint
-│   └── humanize.js   # Text humanizer endpoint
+│   └── humanize.js   # Text humanizer endpoint (2-pass)
 ├── docs/             # Documentation
 ├── .env.example      # API key template
 ├── vercel.json       # Vercel config

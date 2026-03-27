@@ -1,7 +1,7 @@
 {
-  "name": "aiornot",
+  "name": "aiorwot",
   "version": "1.0.0",
-  "description": "AI Text Detector & Humanizer — Detect AI-generated text and make it human-written. Free & open-source.",
+  "description": "AiorWot — AI Text Detector & Humanizer. Detect AI-generated text and make it human-written. Free & open-source.",
   "scripts": {
     "dev": "npx vercel dev",
     "start": "npx serve public"

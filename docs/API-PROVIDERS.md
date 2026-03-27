@@ -1,6 +1,6 @@
 # API Providers Guide
 
-AiOrNot supports multiple free AI API providers. Here's how to get keys for each.
+AiorWot supports multiple free AI API providers. Here's how to get keys for each.
 
 ---
 
@@ -61,7 +61,7 @@ AiOrNot supports multiple free AI API providers. Here's how to get keys for each
    OPENROUTER_API_KEY=your_key_here
    ```
 
-> **Note:** OpenRouter offers many free models. AiOrNot uses `meta-llama/llama-3.3-70b-instruct:free` by default.
+> **Note:** OpenRouter offers many free models. AiorWot uses `meta-llama/llama-3.3-70b-instruct:free` by default.
 
 ---
 

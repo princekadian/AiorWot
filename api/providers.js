@@ -1,5 +1,5 @@
 /* ============================================
-   AiOrNot — Multi-Provider API Handler
+   AiorWot — Multi-Provider API Handler
    ============================================
    Supports: Gemini, Groq, Cohere, OpenRouter
    Automatic fallback on rate limits (429) or errors.
@@ -90,8 +90,8 @@ const PROVIDERS = [
                 headers: {
                     'Content-Type': 'application/json',
                     'Authorization': `Bearer ${apiKey}`,
-                    'HTTP-Referer': 'https://aiornot.vercel.app',
-                    'X-Title': 'AiOrNot'
+                    'HTTP-Referer': 'https://aiorwot.vercel.app',
+                    'X-Title': 'AiorWot'
                 },
                 body: JSON.stringify({
                     model: 'meta-llama/llama-3.3-70b-instruct:free',
@@ -176,7 +176,7 @@ async function callWithFallback(prompt) {
         }
         
         errors.push(result.error);
-        console.log(`[AiOrNot] ${result.error} — trying next provider...`);
+        console.log(`[AiorWot] ${result.error} — trying next provider...`);
     }
     
     throw new Error(`All providers failed:\n${errors.join('\n')}`);

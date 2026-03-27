@@ -1,5 +1,5 @@
 /* ============================================
-   AiOrNot — AI Detection Endpoint
+   AiorWot — AI Detection Endpoint
    POST /api/detect
    Body: { text: "..." }
    Returns: { score, sentences, reasoning, provider }
@@ -96,7 +96,7 @@ module.exports = async function handler(req, res) {
             cleaned = cleaned.replace(/^```(?:json)?\s*/i, '').replace(/\s*```$/i, '');
             parsed = JSON.parse(cleaned);
         } catch (parseErr) {
-            console.error('[AiOrNot] Failed to parse LLM response:', result.text);
+            console.error('[AiorWot] Failed to parse LLM response:', result.text);
             // Fallback: try to extract score with regex
             const scoreMatch = result.text.match(/"score"\s*:\s*(\d+)/);
             parsed = {
@@ -117,7 +117,7 @@ module.exports = async function handler(req, res) {
         });
         
     } catch (error) {
-        console.error('[AiOrNot] Detection error:', error.message);
+        console.error('[AiorWot] Detection error:', error.message);
         return res.status(500).json({ error: error.message });
     }
 };
