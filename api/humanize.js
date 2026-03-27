@@ -7,26 +7,39 @@
 
 const { callWithFallback } = require('./providers');
 
-const HUMANIZE_PROMPT = (text) => `You are an expert at rewriting AI-generated text to sound naturally human while preserving the original meaning.
+const HUMANIZE_PROMPT = (text) => `You are a human ghostwriter. Your job is to rewrite the following text so that it reads as if a real person wrote it from scratch — not like AI rewrote it. The goal is to fool AI detectors completely.
 
-REWRITING RULES:
-1. **Vary sentence structure** — Mix short and long sentences. Don't start every sentence the same way.
-2. **Use natural language** — Replace formal phrases with casual ones. Use contractions (don't, it's, you're).
-3. **Remove AI patterns** — Eliminate phrases like "It's important to note", "Furthermore", "Moreover", "In conclusion", "delve", "landscape", "leverage", "utilize", "comprehensive".
-4. **Add human touches** — Include slight imperfections, colloquialisms, or personal-sounding observations.
-5. **Simplify vocabulary** — Replace complex words with simpler alternatives where natural.
-6. **Break predictable patterns** — Rearrange ideas, merge or split sentences unexpectedly.
-7. **Keep the meaning** — Don't change facts, arguments, or key information.
-8. **Match the tone** — If the original is academic, keep it academic but less robotic. If casual, make it more casual.
-9. **No filler** — Don't add unnecessary words just to seem human.
+CRITICAL RULES — follow ALL of these strictly:
 
-OUTPUT FORMAT:
-- Output ONLY the rewritten text
-- Do NOT include any commentary, explanations, or labels
-- Do NOT wrap in quotes or markdown
-- Just the rewritten text, nothing else
+SENTENCE STRUCTURE:
+- Vary sentence lengths dramatically. Mix very short sentences (3-6 words) with medium and occasionally long ones.
+- Start sentences differently each time. NEVER start two consecutive sentences the same way.
+- Use fragments occasionally. Like this. It's natural.
+- Combine some ideas into run-on-ish sentences connected with "and" or dashes — the way people actually write.
 
-TEXT TO HUMANIZE:
+WORD CHOICE:
+- ALWAYS use contractions: don't, won't, can't, it's, they're, we're, that's, isn't, aren't, couldn't, wouldn't, shouldn't, I'd, we'd, they'd, I've, we've, you've.
+- NEVER use these AI-giveaway words/phrases: "furthermore", "moreover", "additionally", "it's important to note", "it's worth noting", "in conclusion", "comprehensive", "delve", "landscape", "leverage", "utilize", "facilitate", "in order to", "plays a crucial role", "it is essential", "paramount", "multifaceted", "aforementioned", "groundbreaking", "underscores", "realm", "pivotal", "tapestry", "beacon", "bustling", "navigating", "embark", "fostering".
+- Replace formal words with everyday ones: "utilize" → "use", "demonstrate" → "show", "approximately" → "about", "regarding" → "about", "numerous" → "lots of" or "many", "sufficient" → "enough", "commence" → "start", "endeavor" → "try".
+
+HUMAN IMPERFECTIONS:
+- Add personal-sounding observations: "honestly", "to be fair", "the thing is", "look", "here's the deal", "the way I see it".
+- Use casual transitions: "So", "Anyway", "Thing is", "Plus", "And honestly", "But here's the thing", "Now".
+- Include mild hedging like real people do: "I think", "probably", "kind of", "sort of", "pretty much", "basically".
+- Occasionally use parenthetical asides (like this) or em dashes — they feel natural.
+
+STRUCTURE:
+- Don't follow the exact same paragraph structure as the original. Reorganize slightly.
+- Don't make every paragraph the same length. Some should be just 1-2 sentences.
+- Avoid perfectly balanced arguments. Real writing emphasizes some points more than others.
+- Don't use bullet points or numbered lists unless the original absolutely requires them.
+
+ABSOLUTE REQUIREMENTS:
+- Preserve ALL factual information and core arguments.
+- The output must be similar in length to the input (within 20%).
+- Output ONLY the rewritten text — no commentary, no labels, no quotes, no markdown formatting.
+
+TEXT TO REWRITE:
 """
 ${text}
 """`;
