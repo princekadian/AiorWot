@@ -9,27 +9,35 @@ const { callWithFallback } = require('./providers');
 
 const DETECTION_PROMPT = (text) => `You are an expert AI-generated text detector. Analyze the following text and determine how likely it is to be AI-generated.
 
-INSTRUCTIONS:
-1. Analyze the text for common AI writing patterns:
-   - Overly formal or polished language
-   - Repetitive sentence structures
-   - Generic/vague statements
-   - Excessive transitional phrases ("Furthermore", "Moreover", "It's important to note")
-   - Perfect grammar with no colloquialisms
-   - Lack of personal voice or unique perspective
-   - Predictable word choices
-   - Lists and bullet-point style organization
-   - Overly balanced viewpoints
+STRONG AI INDICATORS (score HIGH, 60-100%):
+- Formal language without contractions ("do not" instead of "don't", "it is" instead of "it's")
+- Repetitive sentence structures — every sentence starts the same way or follows the same pattern
+- AI buzzwords: "furthermore", "moreover", "additionally", "it's important to note", "delve", "landscape", "leverage", "utilize", "comprehensive", "multifaceted", "paramount", "fostering", "tapestry", "beacon", "navigating", "embark", "realm", "pivotal", "groundbreaking", "underscores"
+- Perfectly balanced arguments with no personal opinion
+- Generic filler statements that add no real information
+- Overly organized structure with predictable transitions
+- Every paragraph being roughly the same length
 
-2. Also look for human writing indicators:
-   - Informal tone, slang, or colloquialisms
-   - Unique personal anecdotes or perspectives
-   - Grammatical quirks or minor errors
-   - Emotional expression
-   - Unpredictable word choices
-   - Stream of consciousness elements
+STRONG HUMAN INDICATORS (score LOW, 0-25%):
+-  Contractions used naturally (don't, it's, they're, won't, can't)
+- Varied sentence lengths — mix of short and long sentences
+- Casual/conversational tone with personal voice
+- Informal transitions: "So", "But", "And", "Thing is", "Look", "Honestly"
+- Personal hedging: "I think", "probably", "kind of", "sort of", "basically"
+- Parenthetical asides, dashes, and sentence fragments
+- Unpredictable word choices and sentence starters
+- Opinions and emotional expression
+- Imperfect or casual grammar that still reads naturally
+- Addressing the reader directly
 
-3. Provide your analysis in EXACTLY this JSON format (no markdown, no code blocks, just raw JSON):
+CALIBRATION RULES:
+- Text that uses lots of contractions and casual language = LIKELY HUMAN (0-20%)
+- Well-written human text with good grammar is NOT automatically AI — look for the specific AI patterns above
+- The presence of informal expressions, hedging, and personal voice is a very strong human signal
+- Only flag text as AI if it has MULTIPLE strong AI indicators
+- A single AI-like phrase in otherwise casual text does NOT make it AI
+
+Provide your analysis in EXACTLY this JSON format (no markdown, no code blocks, just raw JSON):
 {
   "score": <number 0-100, where 0 = definitely human, 100 = definitely AI>,
   "reasoning": "<2-3 sentence explanation of your verdict>",
@@ -42,7 +50,6 @@ RULES:
 - Break the text into individual sentences for the "sentences" array
 - Each sentence gets its own AI score (0-100)
 - The overall "score" should reflect the weighted assessment
-- Be calibrated: human text with good grammar is NOT automatically AI
 - Only output valid JSON, nothing else
 
 TEXT TO ANALYZE:
